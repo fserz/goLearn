@@ -13,7 +13,7 @@ func myFunc(arg interface{}) {
 	} else {
 		fmt.Println("arg is string type, value = ", value)
 
-		fmt.Println("value type is %T\n", value)
+		fmt.Printf("value type is %T\n", value)
 	}
 }
 

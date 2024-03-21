@@ -47,5 +47,4 @@ func DoFiledAndMethod(input interface{}) {
 func main() {
 	user := User{1, "Aceld", 18}
 	DoFiledAndMethod(user)
-
 }

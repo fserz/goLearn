@@ -12,6 +12,8 @@ func newTask() {
 		i++
 		fmt.Printf("new Goroutine : i = %d\n", i)
 		time.Sleep(1 * time.Second)
+		// 终止当前的goroutine
+		//runtime.Goexit()
 	}
 }
 
@@ -20,11 +22,11 @@ func main() {
 	// 创建一个go进程 去执行newTsask()
 	go newTask()
 
-	//i := 0
-	//for {
-	//	i++
-	//	fmt.Printf("main goroutine: i = %d\n", i)
-	//	time.Sleep(1 * time.Second)
-	//}
+	i := 0
+	for {
+		i++
+		fmt.Printf("main goroutine: i = %d\n", i)
+		time.Sleep(1 * time.Second)
+	}
 
 }
