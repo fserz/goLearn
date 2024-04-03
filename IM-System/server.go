@@ -135,6 +135,5 @@ func (this *Server) Start() {
 
 		// do handler
 		go this.Handler(conn)
-
 	}
 }
