@@ -18,7 +18,7 @@ func changeBook(book Book) {
 
 func changeBook2(book *Book) {
 	// 构造一个book副本
-	book.auth = "jack"
+	book.auth = "seal"
 }
 
 func main() {

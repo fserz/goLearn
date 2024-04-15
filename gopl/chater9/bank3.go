@@ -1,0 +1,97 @@
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var (
+	mu      sync.Mutex // guards balance
+	balance int
+)
+
+func Deposit(amount int) {
+	mu.Lock()
+	balance = balance + amount
+	mu.Unlock()
+}
+
+func Balance() int {
+	mu.Lock()
+	b := balance
+	mu.Unlock()
+	return b
+}
+
+func Balance() int {
+	mu.Lock()
+	defer mu.Unlock()
+	return balance
+}
+
+// NOTE: not atomic!
+func Withdraw(amount int) bool {
+	Deposit(-amount)
+	if Balance() < 0 {
+		Deposit(amount)
+		return false // insufficient funds
+	}
+	return true
+}
+
+// NOTE: incorrect!
+func Withdraw(amount int) bool {
+	mu.Lock()
+	defer mu.Unlock()
+	Deposit(-amount)
+	if Balance() < 0 {
+		Deposit(amount)
+		return false // insufficient funds
+	}
+	return true
+}
+
+func Withdraw(amount int) bool {
+	mu.Lock()
+	defer mu.Unlock()
+	deposit(-amount)
+	if balance < 0 {
+		deposit(amount)
+		return false // insufficient funds
+	}
+	return true
+}
+
+func Deposit(amount int) {
+	mu.Lock()
+	defer mu.Unlock()
+	deposit(amount)
+}
+
+func Balance() int {
+	mu.Lock()
+	defer mu.Unlock()
+	return balance
+}
+
+// This function requires that the lock be held.
+func deposit(amount int) { balance += amount }
+
+var mu sync.RWMutex
+var balance int
+
+func Balance() int {
+	mu.RLock() // readers lock
+	defer mu.RUnlock()
+	return balance
+}
+
+var x, y int
+go func() {
+	x = 1 // A1
+	fmt.Print("y:", y, " ") // A2
+}()
+go func() {
+	y = 1                   // B1
+	fmt.Print("x:", x, " ") // B2
+}()
