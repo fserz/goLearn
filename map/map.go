@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// map 声明方式
 func main() {
 	// 第一种方式
 	// 声明myMap1是一种map，key是string，value也是string

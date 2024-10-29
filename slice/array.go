@@ -2,11 +2,14 @@ package main
 
 import "fmt"
 
+// 定长的数组在传参的时候严格匹配数组类型
 func printArray(myArray [4]int) {
+	// 仍然是值拷贝
 	for index, value := range myArray {
 		fmt.Println("index = ", index, ", value = ", value)
 	}
-	myArray[0] = 111
+	// 值拷贝不会改变原数组
+	myArray[0] = 999
 }
 
 func main() {

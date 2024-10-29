@@ -10,6 +10,7 @@ func main() {
 
 	fmt.Println("=========s1[0]===========")
 
+	// 改变s，s1也会改变
 	s1[0] = 100
 	fmt.Println(s)
 	fmt.Println(s1)
@@ -20,5 +21,9 @@ func main() {
 	fmt.Println("==============copy=============")
 	// 将s中的值，依次拷贝到s2中
 	copy(s2, s)
+	// 改变s,s2不会改变
+	s[0] = 666
+	fmt.Println(s)
+	fmt.Println(s1)
 	fmt.Println(s2)
 }

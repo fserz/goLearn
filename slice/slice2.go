@@ -2,15 +2,17 @@ package main
 
 import "fmt"
 
+// slice 初始化方式
 func main() {
 	// 声明slice1是切片，初始化为1,2,3，len=3
 	//slice1 := []int{1, 2, 3}
 
 	// 声明slice1是切片，但是没有为slice分配空间
 	//var slice1 []int
-	//slice1 = make([]int, 3)
+	//slice1 = make([]int, 3) // 开辟3个空间，初始化值为0
 	//slice1[0] = 100
 
+	// 声明slice1是切片，同时为slice分配空间
 	//var slice1 []int = make([]int, 3)
 
 	// := 推导出 slice1是切片
