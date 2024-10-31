@@ -13,7 +13,7 @@ func main() {
 			//close(c) // 报panic错误向关闭的channel发数据
 		}
 		// close可以关闭一个channel
-		close(c) // 不关闭会发生死锁
+		close(c) // 因为19-26的for循环，始终再从channel中读数据，不关闭会发生死锁
 	}()
 
 	//for {
@@ -25,7 +25,7 @@ func main() {
 	//	}
 	//}
 
-	// 可以使用range来迭代不断操作channel
+	//可以使用range来迭代不断操作channel
 	for data := range c {
 		fmt.Println(data)
 	}

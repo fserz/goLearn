@@ -23,7 +23,7 @@ func main() {
 	go func(a int, b int) bool {
 		fmt.Println("a = ", a, " b = ", b)
 		return true
-	}(10, 20)
+	}(10, 20) // 后面的括号传进形参
 
 	// 死循环
 	for {

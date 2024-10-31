@@ -11,7 +11,8 @@ func main() {
 	var allType interface{}
 	allType = a
 
-	str, _ := allType.(string)
+	str, isStr := allType.(string)
 	fmt.Println(str)
+	fmt.Println(isStr)
 
 }

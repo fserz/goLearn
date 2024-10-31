@@ -5,15 +5,16 @@ import (
 	"reflect"
 )
 
+// reflect 机制
 type User struct {
 	Id   int
 	Name string
 	Age  int
 }
 
-func (this *User) Call() {
+func (u User) Call() {
 	fmt.Println("user is called")
-	fmt.Printf("%v\n", this)
+	fmt.Printf("%v\n", u)
 }
 
 func DoFiledAndMethod(input interface{}) {
@@ -33,14 +34,14 @@ func DoFiledAndMethod(input interface{}) {
 		filed := inputType.Field(i)
 		value := inputValue.Field(i).Interface()
 
-		fmt.Printf("%s: %v = %v\n", filed.Name, filed.Type, value)
+		fmt.Printf("%s: %+v = %+v\n", filed.Name, filed.Type, value)
 
 	}
 
 	// 通过Type获取里面的方法，调用
 	for i := 0; i < inputType.NumMethod(); i++ {
 		m := inputType.Method(i)
-		fmt.Println("%s : %v\n", m.Name, m.Type)
+		fmt.Printf("%s : %v\n", m.Name, m.Type)
 	}
 }
 

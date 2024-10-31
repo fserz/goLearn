@@ -19,8 +19,10 @@ func newTask() {
 
 // 主goroutine
 func main() {
-	// 创建一个go进程 去执行newTsask()
+	// 创建一个go进程 去执行newTask()
 	go newTask()
+
+	//fmt.Println("main goroutine exit")
 
 	i := 0
 	for {

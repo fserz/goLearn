@@ -7,11 +7,11 @@ type Human struct {
 	sex  string
 }
 
-func (this *Human) Eat() {
+func (h *Human) Eat() {
 	fmt.Println("Human.Eat()...")
 }
 
-func (this *Human) Walk() {
+func (h *Human) Walk() {
 	fmt.Println("Human.Walk()...")
 }
 
@@ -21,18 +21,23 @@ type SuperMan struct {
 }
 
 // 重定义父类的方法
-func (this *SuperMan) Eat() {
+func (s *SuperMan) Eat() {
 	fmt.Println("SuperMan Eat....")
 }
 
-func (this *SuperMan) Fly() {
+// 不重写则调用父类方法
+//func (s *SuperMan) Walk() {
+//	fmt.Println("SuperMan Walk fast....")
+//}
+
+func (s *SuperMan) Fly() {
 	fmt.Println("SuperMan.Fly()...")
 }
 
-func (this *SuperMan) Print() {
-	fmt.Println("name = ", this.name)
-	fmt.Println("sex = ", this.sex)
-	fmt.Println("level = ", this.level)
+func (s *SuperMan) Print() {
+	fmt.Println("name = ", s.name)
+	fmt.Println("sex = ", s.sex)
+	fmt.Println("level = ", s.level)
 }
 
 func main() {

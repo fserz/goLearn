@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// map的使用方式
 func printMap(cityMap map[string]string) {
 	// cityMap是一个引用传递
 	for key, value := range cityMap {
